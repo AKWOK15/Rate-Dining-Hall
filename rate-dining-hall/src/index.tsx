@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import './index.css';
-import App from './form';
+import Form from './form';
+import Roberts from './roberts';
+import NavBar from './navbar';
 import reportWebVitals from './reportWebVitals';
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <NavBar/>
+    <Router>
+      {/*Routes ensure that only one route gets loaded*/}
+      <Routes>
+        {/* "/" signfies start path when react first gets loaded*/}
+        <Route path = "/" element = {<Roberts />}/>
+        <Route path = "/form" element = {<Form />}/>
+
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
