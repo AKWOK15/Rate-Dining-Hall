@@ -5,6 +5,7 @@ import './index.css';
 import Form from './form';
 import Roberts from './roberts';
 import NavBar from './navbar';
+import SearchBar from './searchbar';
 import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,7 +17,8 @@ root.render(
       {/*Routes ensure that only one route gets loaded*/}
       <Routes>
         {/* "/" signfies start path when react first gets loaded*/}
-        <Route path = "/" element = {<Roberts />}/>
+        <Route path = "/" element = {<SearchBar />}/>
+        {/* <Route path = "/" element = {<Roberts />}/> */}
         <Route path = "/form" element = {<Form />}/>
 
       </Routes>

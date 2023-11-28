@@ -1,0 +1,25 @@
+/*
+CSS for navigation bar at the top of website
+*/
+* {
+    padding: 0;
+    margin: 0;
+    /*Makes it so that meausrment such as borders are included in overall width*/
+    box-sizing: border-box;
+
+}
+/*Give nav-menu and not nav-bar because if you use nav-bar, list elements won't be ordered by flex display*/
+.nav-menu{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background:grey;
+}
+li{
+    list-style:none;
+    display:inline;
+}
+.logo{
+    width:10vw;
+    /*Need to use display block because margin doesn't work on inline elements such as img because img doesn't know how much space it takes up*/
+}
