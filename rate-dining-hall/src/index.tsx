@@ -18,7 +18,7 @@ root.render(
       <Routes>
         {/* "/" signfies start path when react first gets loaded*/}
         <Route path = "/" element = {<SearchBar />}/>
-        {/* <Route path = "/" element = {<Roberts />}/> */}
+        /* <Route path = "/roberts" element = {<Roberts />}/>
         <Route path = "/form" element = {<Form />}/>
 
       </Routes>

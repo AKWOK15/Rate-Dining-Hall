@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {Link} from 'react-router-dom';
 function SearchBar() {
   const [search, setSearch] = useState('');
   const diningHalls = [
@@ -30,7 +30,7 @@ function SearchBar() {
       {/* The outermost curly braces {}: These are used to indicate that the content inside is a JavaScript expression, and the result of this expression will be rendered by React */}
       {filteredDiningHalls.map((diningHall, index) => (
         <div key={index}>
-          <p>{diningHall.name}</p>
+          <Link to={"/"+diningHall.name.toLowerCase()}>{diningHall.name}</Link>
         </div>
       ))}
     </div>
