@@ -1,6 +1,6 @@
 import './form.css';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
+import { faAssistiveListeningSystems, faStar as solidStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import FormSubmission from './formsubmission';
@@ -24,10 +24,18 @@ function Form() {
   //Will take in data from form and add it to webpage
   const [data, setData] = useState<string[]>([]);
 
+  const[ratingAverage, setRatingAverage] = useState<number[]>([]);
+  const avgStarRatings = ratingAverage.reduce((accumulator, star) => {
+    return accumulator + (star/ratingAverage.length);
+
+  }, 0);
+
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     //Use brackets here to signfy adding 1 to array
     setData((prevData) => [...prevData, `star: ${rating}`, formData.title, formData.review]);
+    setRatingAverage((prevData) =>[...prevData, rating]);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -75,6 +83,11 @@ function Form() {
         {[...Array(data.length)].map((child, index) => {
           return (<FormSubmission contents = {data[index]} key={index} />);
         })}
+      </div>
+      <div>
+        {ratingAverage[ratingAverage.length-1]}
+        <br></br>
+       {`avg star rating: ${avgStarRatings}`}
       </div>
     </form>
   );
